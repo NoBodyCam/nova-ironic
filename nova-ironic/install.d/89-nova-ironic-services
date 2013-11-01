@@ -15,6 +15,13 @@ git pull --no-edit --commit https://review.openstack.org/openstack/nova refs/cha
 set +u
 source /opt/stack/venvs/nova/bin/activate
 set -u
+
+# had enough hacking yet, Ironic has not yet
+# published a client release, so we can not
+# just add to requirements.txt. we'll use
+# the one instlled by openstack-clients
+pip install /opt/stack/python-ironicclient
+
 pip install /opt/stack/nova
 set +u
 deactivate
